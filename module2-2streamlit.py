@@ -3,6 +3,8 @@ import streamlit as st
 
 Blast.email='mpearc11@jhu.edu'
 
+st.title('Module 2-2')
+
 uploaded_file = st.file_uploader("", type='fasta')
 
 if uploaded_file is not None:
