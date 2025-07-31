@@ -1,9 +1,9 @@
 from Bio import Blast
 import streamlit as st
 
-Blast.email='mpearc11@jhu.edu'
-
 st.title('Module 2-2')
+
+Blast.email = st.text_input('provide your jhu email')
 
 uploaded_file = st.file_uploader("", type='fasta')
 
@@ -13,10 +13,11 @@ else:
     st.info("Please upload your target FASTA file")
 
 if st.button('run blast'):
-    st.write('blast running...')
     target_nt_fasta = uploaded_file.read()
-    result_stream = Blast.qblast('blastx', 'nr', target_nt_fasta)
-    st.write('blast finished!')
+    with st.empty():
+        st.write('blast running...')
+        result_stream = Blast.qblast('blastx', 'nr', target_nt_fasta)
+        st.write('blast finished!')
 
     with open('myblast.xml', 'wb') as out_stream:
         out_stream.write(result_stream.read())
