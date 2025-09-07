@@ -1,9 +1,11 @@
 from Bio import Blast
 import streamlit as st
 
-st.title('Module 2-2')
+st.title('Automated Python Search App – Translation BLAST')
 
-Blast.email = st.text_input('provide your jhu email')
+#Blast.email = st.text_input('provide your jhu email')
+
+st.header('Submit Query for BLASTx – (Translated Search)')
 
 uploaded_file = st.file_uploader("", type='fasta')
 
